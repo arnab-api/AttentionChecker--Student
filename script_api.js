@@ -47,7 +47,13 @@ function getZoneInformation(data){
 
 function getRoundedValues(data){
     if(data == null) return [-1,-1];
-    return [Math.round(data.x), Math.round(data.y)];
+    let h = data.y
+    let w = data.x
+    h = Math.max(0, h)
+    h = Math.min(h, screenHeight)
+    w = Math.max(0, w)
+    w = Math.min(w, screenWidth)
+    return [Math.round(w), Math.round(h)];
 }
 
 
@@ -62,20 +68,26 @@ function saveGazeData(data){
     else gazedata[x][y] += 1;
 }
 
+// data = {"name": "api"}
 // var xhr = new XMLHttpRequest();
 // xhr.open("POST", "http://localhost:5000/post_gaze", true);
 // xhr.setRequestHeader('Content-Type', 'application/json');
 // xhr.send(JSON.stringify(data));
 
 function postData2InstructorBackend(){
-    fetch("http://localhost:5000/post_gaze", {
+    fetch("http://localhost:5000/api/post_gaze", {
         method: "POST", 
         headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(gazedata)
+        body: JSON.stringify(
+            {
+                "screenHeight": screenHeight,
+                "screenWidth" : screenWidth, 
+                "gaze"        : gazedata
+            })
     }).then(res => {
         console.log("Request complete! response:", res);
     });
-    console.log("refresing gaze data")
+    // console.log("refresing gaze data")
     gazedata = {}
 }
 setInterval(postData2InstructorBackend, 10*1000)
@@ -88,7 +100,7 @@ webgazer
         saveGazeData(data)
         let x = cord[0], y = cord[1]
         let h_zone = zones[0], w_zone = zones[1] 
-        console.log(screenWidth, screenHeight, " >>>> ", x,y, " <><><> ", height_zone_names[h_zone], width_zone_names[w_zone])
+        // console.log(screenWidth, screenHeight, " >>>> ", x,y, " <><><> ", height_zone_names[h_zone], width_zone_names[w_zone])
         // await new Promise(r => setTimeout(r, 2000));
     })
     .begin()
