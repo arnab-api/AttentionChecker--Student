@@ -1,4 +1,4 @@
-// window.saveDataAcrossSessions = true
+window.saveDataAcrossSessions = true
 
 const screenHeight  = window.innerHeight
 const screenWidth   = window.innerWidth 
@@ -92,6 +92,8 @@ function postData2InstructorBackend(){
 }
 setInterval(postData2InstructorBackend, 10*1000)
 
+
+// console.log(">>>>>>>>>", sessionStorage.getItem("SessionName"));
 webgazer
     .setGazeListener( (data, timestamp) => {
         // console.log(data, timestamp)
