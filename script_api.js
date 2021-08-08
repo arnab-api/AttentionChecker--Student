@@ -19,6 +19,22 @@ const width_zone_names = {
     "2" : "RIGHT"
 }
 
+let ver_pos = [10, 45, 85];
+let hor_pos = [10, 45, 85];
+
+let pos_cnt = 0;
+
+function changeFocusPosition(){
+    console.log("Changing Focus position called");
+    var el = document.getElementById("container");
+    // el.style.top = "10px";
+    // el.style.left = "10px";
+    el.style.top  = ver_pos[Math.floor(pos_cnt/3)].toString()+"%"
+    el.style.left = hor_pos[pos_cnt%3].toString() + "%"
+
+    pos_cnt = (pos_cnt+1)%9;
+}
+
 function getZoneInformation(data){
     if(data == null) return ["-1", "-1"]
     let h = data.y

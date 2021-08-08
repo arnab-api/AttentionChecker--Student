@@ -4,5 +4,6 @@
         "cert": "/home/arnab/0000/certificates/localhost+2.pem", 
         "key": "/home/arnab/0000/certificates/localhost+2-key.pem",
         "passphrase": "12345"
-    }
+    },
+    "jupyter.jupyterServerType": "local"
 }
