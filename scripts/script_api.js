@@ -74,10 +74,12 @@ function getRoundedValues(data){
 
 
 let gazedata = {};
+let gazestream = [];
 
 function saveGazeData(data){
     if(data == null) return;
     const cord = getRoundedValues(data);
+    gazestream.push(cord);
     const x = cord[0], y = cord[1];
     if(!(x in gazedata)) gazedata[x] = {};
     if(!(y in gazedata[x])) gazedata[x][y] = 1;
