@@ -1,0 +1,23 @@
+{
+  "name": "AttentionChecker--Student",
+  "version": "1.0.0",
+  "description": "## checking submodules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnab-api/AttentionChecker--Student.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arnab-api/AttentionChecker--Student/issues"
+  },
+  "homepage": "https://github.com/arnab-api/AttentionChecker--Student#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
