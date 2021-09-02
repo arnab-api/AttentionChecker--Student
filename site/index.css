@@ -15,7 +15,7 @@ body {
     border: 1px solid #73AD21;
 }
 
-#container {
+/* #container {
     width: 200px;
     height: 100px;
     position: absolute;
@@ -24,4 +24,14 @@ body {
     margin-top: -50px;
     margin-left: -50px;
     background: orange;
-  }
+  } */
+#container {
+    height: 5%;
+    width: 3%;
+    position: absolute;
+    top: 48%;
+    left: 48%;
+    background-color: orange;
+    border-radius: 50%;
+    display: inline-block;
+}

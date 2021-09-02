@@ -22,11 +22,11 @@ const width_zone_names = {
     "2" : "RIGHT"
 }
 
-let ver_pos = [10, 45, 85];
-let hor_pos = [10, 45, 85];
+let ver_pos = [3, 48, 95];
+let hor_pos = [3, 48, 95];
 
 let pos_cnt = 0;
-
+let click_count = 0;
 
 function changeFocusPosition(){
     console.log("Changing Focus position called");
@@ -37,7 +37,20 @@ function changeFocusPosition(){
     el.style.left = hor_pos[pos_cnt%3].toString() + "%"
 
     pos_cnt = (pos_cnt+1)%9;
+    click_count = 0;
 }
+
+let calibration_element = document.getElementById("container")
+
+document.body.addEventListener('click', function (event) {
+    if (calibration_element.contains(event.target)) {
+        click_count += 1;
+        console.log('clicked inside >> ', click_count);
+        if(click_count == 10) changeFocusPosition();
+    } else {
+        console.log('clicked outside');
+    }
+});
 
 function getZoneInformation(data){
     if(data == null) return ["-1", "-1"]
