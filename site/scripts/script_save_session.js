@@ -115,7 +115,7 @@ function updateGazeStream(data){
 // xhr.send(JSON.stringify(data));
 
 function postData2InstructorBackend(){
-    fetch("http://localhost:5000/api/post_gazestream", {
+    fetch("http://localhost:5555/api/post_gazestream", {
         method: "POST", 
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(

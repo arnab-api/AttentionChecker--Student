@@ -93,7 +93,7 @@ function saveGazeData(data){
 // xhr.send(JSON.stringify(data));
 
 function postData2InstructorBackend(){
-    fetch("http://localhost:5000/api/post_gaze", {
+    fetch("http://localhost:5555/api/post_gaze", {
         method: "POST", 
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(
