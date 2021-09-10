@@ -114,13 +114,13 @@ function updateGazeStream(data){
 // xhr.setRequestHeader('Content-Type', 'application/json');
 // xhr.send(JSON.stringify(data));
 
-const local_url_root = "http://localhost:3005/";
-const erdos_url_root = "http://150.108.64.64:3005/";
+const local_url_root = "http://localhost:3005/api/post_gazestream";
+const erdos_url_root = "https://erdos.dsm.fordham.edu:3005/api/post_gazestream";
 
 const url_root = erdos_url_root;
 
 function postData2InstructorBackend(){
-    fetch(url_root + "api/post_gazestream", {
+    fetch(url_root, {
         method: "POST", 
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(
