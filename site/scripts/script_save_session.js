@@ -1,4 +1,4 @@
-window.saveDataAcrossSessions = true
+window.saveDataAcrossSessions = false
 
 const screenHeight  = window.innerHeight
 const screenWidth   = window.innerWidth 
@@ -46,7 +46,7 @@ document.body.addEventListener('click', function (event) {
     if (calibration_element.contains(event.target)) {
         click_count += 1;
         console.log('clicked inside >> ', click_count);
-        if(click_count == 10) changeFocusPosition();
+        if(click_count == 5) changeFocusPosition();
     } else {
         console.log('clicked outside');
     }
