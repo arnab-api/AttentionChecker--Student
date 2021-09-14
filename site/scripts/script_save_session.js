@@ -25,30 +25,94 @@ const width_zone_names = {
 let ver_pos = [3, 48, 95];
 let hor_pos = [3, 48, 95];
 
+const calibration_points = [
+    {"x": -0.45, "y": -0.45}, {"x": -0.15, "y": -0.45}, {"x": 0.15, "y": -0.45}, 
+    {"x": 0.45, "y": -0.45}, {"x": -0.45, "y": -0.15}, {"x": -0.15, "y": -0.15}, 
+    {"x": 0.15, "y": -0.15}, {"x": 0.45, "y": -0.15}, {"x": -0.45, "y": 0.15}, 
+    {"x": -0.15, "y": 0.15}, {"x": 0.15, "y": 0.15}, {"x": 0.45, "y": 0.15}, 
+    {"x": -0.45, "y": 0.45}, {"x": -0.15, "y": 0.45}, {"x": 0.15, "y": 0.45}, 
+    {"x": 0.45, "y": 0.45}, {"x": -0.45, "y": -0.45}, {"x": 0.45, "y": -0.45}, 
+    {"x": 0.45, "y": 0.45}, {"x": -0.45, "y": 0.45}
+]
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+shuffleArray(calibration_points);
+
+console.log(calibration_points)
+
 let pos_cnt = 0;
 let click_count = 0;
+const calibration_click_count = 2;
+
+// function changeFocusPosition(){
+//     console.log("Changing Focus position called");
+//     var el = document.getElementById("container");
+//     // el.style.top = "10px";
+//     // el.style.left = "10px";
+//     el.style.top  = ver_pos[Math.floor(pos_cnt/3)].toString()+"%"
+//     el.style.left = hor_pos[pos_cnt%3].toString() + "%"
+
+//     pos_cnt = (pos_cnt+1)%9;
+//     click_count = 0;
+// }
+
 
 function changeFocusPosition(){
-    console.log("Changing Focus position called");
+    click_count = 0;
+    console.log("Changing Focus position called >> ", click_count, "<><>", pos_cnt);
     var el = document.getElementById("container");
     // el.style.top = "10px";
     // el.style.left = "10px";
-    el.style.top  = ver_pos[Math.floor(pos_cnt/3)].toString()+"%"
-    el.style.left = hor_pos[pos_cnt%3].toString() + "%"
+    el.style.top  = (48 + calibration_points[pos_cnt]['x']*100).toString()+"%"
+    el.style.left = (48 + calibration_points[pos_cnt]['y']*100).toString() + "%"
 
-    pos_cnt = (pos_cnt+1)%9;
-    click_count = 0;
+    pos_cnt = (pos_cnt+1);
+    if(pos_cnt == calibration_points.length){
+        console.log("finished calibration!!!");
+        hideFocusPoint();
+    }
+    // pos_cnt = (pos_cnt+1)%calibration_points.length;
 }
 
-let calibration_element = document.getElementById("container")
+let calibration_element = document.getElementById("container");
+let calibration_active = true;
+function showFocusPoint(){
+    shuffleArray(calibration_points);
+    calibration_element.style.display = "block";
+    calibration_active = true;
+    click_count = 0;
+    pos_cnt = 0;
+}
+
+function hideFocusPoint(){
+    calibration_element.style.display = "none";
+    calibration_active = false;
+    click_count = 0;
+}
+function toggleCalibration(){
+    // console.log("before >> ", calibration_active);
+    if(calibration_active) hideFocusPoint();
+    else showFocusPoint();
+    // console.log("after >> ", calibration_active);
+}
 
 document.body.addEventListener('click', function (event) {
+    if(calibration_active == false) return;
+
     if (calibration_element.contains(event.target)) {
         click_count += 1;
-        console.log('clicked inside >> ', click_count);
-        if(click_count == 5) changeFocusPosition();
+        console.log('calibrating >> clicked inside >> ', click_count);
+        if(click_count == calibration_click_count) changeFocusPosition();
     } else {
-        console.log('clicked outside');
+        console.log('calibrating >> clicked outside');
     }
 });
 
@@ -153,3 +217,88 @@ webgazer
         // await new Promise(r => setTimeout(r, 2000));
     })
     .begin()
+
+
+let videoStatus = true;
+let continuousVideo = true;
+
+function turnOnVideo()
+{
+    document.getElementById('webgazerFaceFeedbackBox').style.display = 'block';
+    document.getElementById('webgazerVideoFeed').style.display = 'block';
+    document.getElementById('webgazerFaceOverlay').style.display = 'block';
+    videoStatus = true;
+}
+
+
+function turnOffVideo()
+{
+    document.getElementById('webgazerFaceFeedbackBox').style.display = 'none';
+    document.getElementById('webgazerVideoFeed').style.display = 'none';
+    document.getElementById('webgazerFaceOverlay').style.display = 'none';
+    videoStatus = false;
+}
+
+function toggleVideo(){
+    continuousVideo ^= true;
+    if(continuousVideo == false){
+        turnOffVideo();
+    }
+    else{
+        turnOnVideo()
+    }
+    // let el = document.getElementById("webgazerFaceFeedbackBox");
+    // let col = window.getComputedStyle(el).getPropertyValue("border");
+    // console.log(" <>>>> ", col)
+}
+
+window.onload = function() {
+    setTimeout(loadAfterTime, 3000);
+ }; 
+
+function loadAfterTime(){
+    console.log("function executing after some time");
+    bindEventListener_2_FaceBoundBox();
+    changeGazeTrackerStyle()
+};
+
+function bindEventListener_2_FaceBoundBox(){
+    try{
+        let faceborder = document.getElementById("webgazerFaceFeedbackBox");
+        var observer = new MutationObserver(function(mutations) {
+            let color_map = {
+                "3px solid rgb(255, 0, 0)": "RED",
+                "3px solid rgb(0, 128, 0)": "GREEN",
+                "3px solid rgb(0, 0, 0)"  : "BLACK"
+            }
+            mutations.forEach(function(mutationRecord) {
+                let color_code = window.getComputedStyle(faceborder).getPropertyValue("border");
+                let color_now = color_map[color_code];
+                console.log('border color changed!! >> ', color_code, color_map[color_code]);
+                if(continuousVideo == false){
+                    if(color_now != "GREEN") turnOnVideo();
+                    else turnOffVideo();
+                }
+            });    
+        });
+        
+        observer.observe(faceborder, { attributes : true, attributeFilter : ['style'] });
+        console.log("listener bound to face bounding box successfully!!!")
+    }catch(err){
+        console.log("face bounding box not yet loaded -- trying again");
+        setTimeout(bindEventListener_2_FaceBoundBox, 2000);
+    }
+}
+
+function changeGazeTrackerStyle(){
+    try{
+        let dot = document.getElementById("webgazerGazeDot");
+        dot.style.background = "red";
+        dot.style.opacity = 0.5;
+        dot.style.width = "20px";
+        dot.style.height = "20px";
+    }catch(err){
+        console.log("tracker dot not yet initialized -- trying again");
+        setTimeout(changeGazeTrackerStyle, 2000);
+    }
+}

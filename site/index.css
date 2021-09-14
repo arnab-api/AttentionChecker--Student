@@ -34,4 +34,5 @@ body {
     background-color: orange;
     border-radius: 50%;
     display: inline-block;
+    z-index: 1;
 }
