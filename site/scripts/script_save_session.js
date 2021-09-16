@@ -77,6 +77,7 @@ function changeFocusPosition(){
     pos_cnt = (pos_cnt+1);
     if(pos_cnt == calibration_points.length){
         console.log("finished calibration!!!");
+        pushClibrationCompleteNotification();
         hideFocusPoint();
     }
     // pos_cnt = (pos_cnt+1)%calibration_points.length;
@@ -178,13 +179,14 @@ function updateGazeStream(data){
 // xhr.setRequestHeader('Content-Type', 'application/json');
 // xhr.send(JSON.stringify(data));
 
-const local_url_root = "https://localhost:3005/api/post_gazestream";
-const erdos_url_root = "https://erdos.dsm.fordham.edu:3005/api/post_gazestream";
+const local_url_root = "https://localhost:3005";
+const erdos_url_root = "https://erdos.dsm.fordham.edu:3005";
 
 const url_root = erdos_url_root;
 
 function postData2InstructorBackend(){
-    fetch(url_root, {
+    const post_url = url_root + "/api/post_gazestream";
+    fetch(post_url, {
         method: "POST", 
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(
@@ -203,6 +205,24 @@ function postData2InstructorBackend(){
 }
 setInterval(postData2InstructorBackend, 10*1000)
 
+function pushClibrationCompleteNotification(){
+    const post_url = url_root + "/api/register_calibration";
+    fetch(post_url, {
+        method: "POST", 
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(
+            {
+                "session"     : session_id,
+                "screenHeight": screenHeight,
+                "screenWidth" : screenWidth, 
+            })
+    }).then(res => {
+        console.log("Request complete! response:", res);
+    });
+    // console.log("refresing gaze data")
+    // gazedata = {}
+    gazestream = []
+}
 
 // console.log(">>>>>>>>>", sessionStorage.getItem("SessionName"));
 webgazer
