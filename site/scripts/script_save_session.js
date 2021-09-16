@@ -321,6 +321,7 @@ function changeGazeTrackerStyle(){
         dot.style.opacity = 0.5;
         dot.style.width = "20px";
         dot.style.height = "20px";
+        console.log("tracker dot style changed")
     }catch(err){
         console.log("tracker dot not yet initialized -- trying again");
         setTimeout(changeGazeTrackerStyle, 2000);
