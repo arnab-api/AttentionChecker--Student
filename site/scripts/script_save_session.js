@@ -224,6 +224,7 @@ let continuousVideo = true;
 
 function turnOnVideo()
 {
+    console.log("turning on video feedback");
     document.getElementById('webgazerFaceFeedbackBox').style.display = 'block';
     document.getElementById('webgazerVideoFeed').style.display = 'block';
     document.getElementById('webgazerFaceOverlay').style.display = 'block';
@@ -233,6 +234,7 @@ function turnOnVideo()
 
 function turnOffVideo()
 {
+    console.log("turning on video feedback");
     document.getElementById('webgazerFaceFeedbackBox').style.display = 'none';
     document.getElementById('webgazerVideoFeed').style.display = 'none';
     document.getElementById('webgazerFaceOverlay').style.display = 'none';
@@ -240,6 +242,7 @@ function turnOffVideo()
 }
 
 function toggleVideo(){
+    console.log("toggle video feedback called")
     continuousVideo ^= true;
     if(continuousVideo == false){
         turnOffVideo();
