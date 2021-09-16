@@ -234,7 +234,7 @@ function turnOnVideo()
 
 function turnOffVideo()
 {
-    console.log("turning on video feedback");
+    console.log("turning off video feedback");
     document.getElementById('webgazerFaceFeedbackBox').style.display = 'none';
     document.getElementById('webgazerVideoFeed').style.display = 'none';
     document.getElementById('webgazerFaceOverlay').style.display = 'none';
@@ -270,12 +270,13 @@ function bindEventListener_2_FaceBoundBox(){
         let faceborder = document.getElementById("webgazerFaceFeedbackBox");
         var observer = new MutationObserver(function(mutations) {
             let color_map = {
-                "3px solid rgb(255, 0, 0)": "RED",
-                "3px solid rgb(0, 128, 0)": "GREEN",
-                "3px solid rgb(0, 0, 0)"  : "BLACK"
+                "rgb(255, 0, 0)": "RED",
+                "rgb(0, 128, 0)": "GREEN",
+                "rgb(0, 0, 0)"  : "BLACK"
             }
             mutations.forEach(function(mutationRecord) {
                 let color_code = window.getComputedStyle(faceborder).getPropertyValue("border");
+                color_code = color_code.substring(color_code.indexOf("rgb"), color_code.length)
                 let color_now = color_map[color_code];
                 console.log('border color changed!! >> ', color_code, color_map[color_code]);
                 if(continuousVideo == false){
