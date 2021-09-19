@@ -1,4 +1,4 @@
-window.saveDataAcrossSessions = false
+window.saveDataAcrossSessions = true;
 
 const screenHeight  = window.innerHeight
 const screenWidth   = window.innerWidth 
