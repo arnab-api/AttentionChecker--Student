@@ -10,8 +10,13 @@
 </head>
 <body>
   <div id="container"></div>
+  <div id="accuracy_focus" style="display:none"></div>
   <button class="button" onclick="toggleCalibration()">Toggle Calibration</button>
   <button class="button" id="video" onclick="toggleVideo()">Toggle Video</button>
+  <button class="button" id="accuracy_btn" onclick="startAccuracyMeasurement()">Accuracy Check</button>
+  <button id="button_stat" onclick="toggleBackendReporting()">ON</button>
+
+
   <h2 id="session_info">Session</h2>
 </body>
 </html>

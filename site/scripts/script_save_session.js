@@ -77,15 +77,15 @@ function changeFocusPosition(){
     pos_cnt = (pos_cnt+1);
     if(pos_cnt == calibration_points.length){
         console.log("finished calibration!!!");
-        pushClibrationCompleteNotification();
-        hideFocusPoint();
+        pushCalibrationCompleteNotification();
+        hideCalibrationFocus();
     }
     // pos_cnt = (pos_cnt+1)%calibration_points.length;
 }
 
 let calibration_element = document.getElementById("container");
 let calibration_active = true;
-function showFocusPoint(){
+function showCalibrationFocus(){
     shuffleArray(calibration_points);
     calibration_element.style.display = "block";
     calibration_active = true;
@@ -93,15 +93,15 @@ function showFocusPoint(){
     pos_cnt = 0;
 }
 
-function hideFocusPoint(){
+function hideCalibrationFocus(){
     calibration_element.style.display = "none";
     calibration_active = false;
     click_count = 0;
 }
 function toggleCalibration(){
     // console.log("before >> ", calibration_active);
-    if(calibration_active) hideFocusPoint();
-    else showFocusPoint();
+    if(calibration_active) hideCalibrationFocus();
+    else showCalibrationFocus();
     // console.log("after >> ", calibration_active);
 }
 
@@ -116,6 +116,62 @@ document.body.addEventListener('click', function (event) {
         console.log('calibrating >> clicked outside');
     }
 });
+
+let accuracy_measurement_active = false;
+const accuracy_focus_element = document.getElementById("accuracy_focus");
+const accuracy_btn = document.getElementById("accuracy_btn");
+let accuracy_position = 0;
+
+function showAccuracyFocus(){
+    accuracy_focus_element.style.display = "block";
+    accuracy_measurement_active = true;
+}
+
+function hideAccuracyFocus(){
+    accuracy_focus_element.style.display = "none";
+    accuracy_measurement_active = false;
+    accuracy_position = 0;
+}
+
+const accuracy_cords = [
+    {'x': 50, 'y': 50},
+    {'x': 10, 'y': 10},
+    {'x': 80, 'y': 10},
+    {'x': 80, 'y': 80},
+    {'x': 10, 'y': 80},
+]
+
+function setAccuracyFocusPosition(posidx){
+    accuracy_focus_element.style.top  = (accuracy_cords[posidx-1]['x']).toString() + "%"
+    accuracy_focus_element.style.left = (accuracy_cords[posidx-1]['y']).toString() + "%"
+}
+
+function startAccuracyMeasurement(){
+    if(accuracy_measurement_active == false){
+        console.log("started accuracy measurement");
+        accuracy_measurement_active = true;
+        hideCalibrationFocus();
+        showAccuracyFocus();  
+        accuracy_position = 1  
+        accuracy_btn.innerHTML = "Position " + accuracy_position;
+        setAccuracyFocusPosition(accuracy_position);
+        console.log("disable webgazer gaze dot");
+        document.getElementById("webgazerGazeDot").style.opacity = "0.0";
+    }
+    else{
+        accuracy_position += 1;
+        if(accuracy_position > accuracy_cords.length){
+            hideAccuracyFocus();
+            accuracy_btn.innerHTML = "Accuracy Check";
+            accuracy_position = 0;
+            console.log("enable webgazer gaze dot");
+            document.getElementById("webgazerGazeDot").style.opacity = "0.5";
+        }
+        else{
+            setAccuracyFocusPosition(accuracy_position);
+        }
+    }
+}
 
 function getZoneInformation(data){
     if(data == null) return ["-1", "-1"]
@@ -163,7 +219,12 @@ function updateGazeStream(data){
     const x = cord[0], y = cord[1];
     const t = new Date()
     gazestream.push({
-        gaze        : {x: x, y: y},
+        gaze        : {
+            x           : x, 
+            y           : y, 
+            'face'      : roundFaceKeypoints(data['face'])
+            // 'face'      : data['face']
+        },
         timestamp   : {
             hour        : t.getHours(),
             minute      : t.getMinutes(),
@@ -203,9 +264,40 @@ function postData2InstructorBackend(){
     // gazedata = {}
     gazestream = []
 }
-setInterval(postData2InstructorBackend, 10*1000)
+let reporting_interval = setInterval(postData2InstructorBackend, 10*1000);
+let reporting = true;
+const stat_button = document.getElementById("button_stat");
 
-function pushClibrationCompleteNotification(){
+function startBackendReporting(){
+    console.log("... starting background reporting to " + url_root)
+    reporting = true;
+    reporting_interval = setInterval(postData2InstructorBackend, 10*1000)
+    stat_button.style.background = "green";
+    stat_button.innerHTML = "ON";
+
+    console.log(" ... resetting a gazestream");
+    gazestream = []
+}
+
+function stopBackendReporting(){
+    console.log("xxx stoping background reporting to " + url_root)
+    reporting = false;
+    clearInterval(reporting_interval);
+    // reporting_interval = null;
+    stat_button.style.background = "#b30000";
+    stat_button.innerHTML = "OFF";  
+
+    console.log(" ... resetting a gazestream");
+    gazestream = []
+}
+
+function toggleBackendReporting(){
+    if(reporting == true) stopBackendReporting();
+    else startBackendReporting();
+}
+
+
+function pushCalibrationCompleteNotification(){
     const post_url = url_root + "/api/register_calibration";
     fetch(post_url, {
         method: "POST", 
@@ -224,10 +316,66 @@ function pushClibrationCompleteNotification(){
     gazestream = []
 }
 
+function roundFaceKeypoints(face){
+    let ret = []
+    face.forEach(keypoint => {
+        ret.push([
+            Math.round(keypoint[0]),
+            Math.round(keypoint[1]),
+            Math.round(keypoint[2])
+        ]);
+    });
+    return ret;
+}
+
+function roughSizeOfObject( object ) {
+
+    var objectList = [];
+    var stack = [ object ];
+    var bytes = 0;
+
+    while ( stack.length ) {
+        var value = stack.pop();
+
+        if ( typeof value === 'boolean' ) {
+            bytes += 4;
+        }
+        else if ( typeof value === 'string' ) {
+            bytes += value.length * 2;
+        }
+        else if ( typeof value === 'number' ) {
+            bytes += 8;
+        }
+        else if
+        (
+            typeof value === 'object'
+            && objectList.indexOf( value ) === -1
+        )
+        {
+            objectList.push( value );
+
+            for( var i in value ) {
+                stack.push( value[ i ] );
+            }
+        }
+    }
+    return bytes;
+}
+
 // console.log(">>>>>>>>>", sessionStorage.getItem("SessionName"));
 webgazer
     .setGazeListener( (data, timestamp) => {
-        // console.log(data, timestamp)
+        // if(data != null) {
+        //     // console.log(data, timestamp);
+        //     let eye = getRoundedValues(data)
+        //     let obj = {
+        //         'x': eye[0],
+        //         'y': eye[1],
+        //         'face': data['face']
+        //         // 'face': roundFaceKeypoints(data['face'])
+        //     }
+        //     console.log(roughSizeOfObject(obj), obj);
+        // }
         let zones = getZoneInformation(data)
         let cord = getRoundedValues(data)
         updateGazeStream(data)

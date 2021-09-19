@@ -18,6 +18,22 @@ body {
     border-radius: 8px;
   }
 
+#button_stat{
+  display: inline-block;
+  padding: 20px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: green;
+  border-radius: 50%;
+  position: fixed;
+  right: 0;
+}
+
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -70,4 +86,16 @@ body {
     border-radius: 50%;
     display: inline-block;
     z-index: 1;
+}
+
+#accuracy_focus {
+  height: 6%;
+  width: 3%;
+  position: absolute;
+  top: 68%;
+  left: 68%;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  z-index: 1;
 }
