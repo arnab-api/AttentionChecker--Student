@@ -8,6 +8,10 @@ const session_id = Math.random().toString(36).substring(2, 15) + Math.random().t
 console.log(" >>> ", session_id)
 document.getElementById("session_info").innerHTML = session_id;
 
+
+let TAG = "GAZESTREAM";
+
+
 const height_zone_names = {
     "-1": "N/A",
     "0" : "UPPER",
@@ -147,6 +151,13 @@ function setAccuracyFocusPosition(posidx){
 }
 
 function startAccuracyMeasurement(){
+
+    if(reporting == true){
+        console.log("... ... ... resetting background reporting");
+        stopBackendReporting();
+        startBackendReporting();
+    }
+
     if(accuracy_measurement_active == false){
         console.log("started accuracy measurement");
         accuracy_measurement_active = true;
@@ -154,6 +165,7 @@ function startAccuracyMeasurement(){
         showAccuracyFocus();  
         accuracy_position = 1  
         accuracy_btn.innerHTML = "Position " + accuracy_position;
+        TAG = "ACCURACY CHECK >> " + accuracy_position;
         setAccuracyFocusPosition(accuracy_position);
         console.log("disable webgazer gaze dot");
         document.getElementById("webgazerGazeDot").style.opacity = "0.0";
@@ -164,10 +176,13 @@ function startAccuracyMeasurement(){
             hideAccuracyFocus();
             accuracy_btn.innerHTML = "Accuracy Check";
             accuracy_position = 0;
+            TAG = "GAZESTREAM";
             console.log("enable webgazer gaze dot");
             document.getElementById("webgazerGazeDot").style.opacity = "0.5";
         }
         else{
+            accuracy_btn.innerHTML = "Position " + accuracy_position;
+            TAG = "ACCURACY CHECK >> " + accuracy_position;
             setAccuracyFocusPosition(accuracy_position);
         }
     }
@@ -253,6 +268,7 @@ function postData2InstructorBackend(){
         body: JSON.stringify(
             {
                 "session"     : session_id,
+                "TAG"         : TAG,
                 "screenHeight": screenHeight,
                 "screenWidth" : screenWidth, 
                 "gaze"        : gazestream
