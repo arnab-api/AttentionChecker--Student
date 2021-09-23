@@ -218,10 +218,10 @@ function getRoundedValues(data){
     if(data == null) return [-1,-1];
     let h = data.y
     let w = data.x
-    h = Math.max(0, h)
-    h = Math.min(h, screenHeight)
-    w = Math.max(0, w)
-    w = Math.min(w, screenWidth)
+    // h = Math.max(0, h)
+    // h = Math.min(h, screenHeight)
+    // w = Math.max(0, w)
+    // w = Math.min(w, screenWidth)
     return [Math.round(w), Math.round(h)];
 }
 
