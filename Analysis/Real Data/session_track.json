@@ -1,0 +1,38 @@
+{
+    "template": {
+        "Position 1":   "",
+        "Position 2":	"",	
+        "Position 3":	"",	
+        "Position 4":	"",	
+        "Position 5":	"",	
+        "Right"     :	"",
+        "Left"      :	"",
+        "Up"        :	"",	
+        "Down"      :	"",	
+        "Blink"     :	""
+    },
+    "P1": {
+        "Position 1":   "session_2021-09-24T10:09:59.226067.json",
+        "Position 2":	"session_2021-09-24T10:10:40.966059.json",	
+        "Position 3":	"session_2021-09-24T10:11:12.264553.json",	
+        "Position 4":	"session_2021-09-24T10:11:40.039892.json",	
+        "Position 5":	"session_2021-09-24T10:12:05.820481.json",	
+        "Right"     :	"session_2021-09-24T10:13:07.759221.json",
+        "Left"      :	"session_2021-09-24T10:13:32.368622.json",
+        "Up"        :	"session_2021-09-24T10:13:59.251024.json",	
+        "Down"      :	"session_2021-09-24T10:14:23.898360.json",	
+        "Blink"     :	"session_2021-09-24T10:15:14.581783.json"
+    },
+    "P1_without_glasses": {
+        "Position 1":   "session_2021-09-24T10:39:00.106268.json",
+        "Position 2":	"session_2021-09-24T10:39:21.136990.json",	
+        "Position 3":	"session_2021-09-24T10:40:01.869927.json",	
+        "Position 4":	"session_2021-09-24T10:40:20.933930.json",	
+        "Position 5":	"session_2021-09-24T10:40:49.301070.json",	
+        "Right"     :	"session_2021-09-24T10:41:18.991384.json",
+        "Left"      :	"session_2021-09-24T10:41:38.791736.json",
+        "Up"        :	"session_2021-09-24T10:41:59.552332.json",	
+        "Down"      :	"session_2021-09-24T10:42:31.166088.json",	
+        "Blink"     :	"session_2021-09-24T10:43:50.892964.json"
+    }
+}
