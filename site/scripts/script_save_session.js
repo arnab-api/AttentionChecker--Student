@@ -140,14 +140,18 @@ function hideAccuracyFocus(){
 const accuracy_cords = [
     {'x': 50, 'y': 50},
     {'x': 10, 'y': 10},
-    {'x': 80, 'y': 10},
-    {'x': 80, 'y': 80},
-    {'x': 10, 'y': 80},
+    {'x': 10, 'y': 50},
+    {'x': 10, 'y': 90},
+    {'x': 50, 'y': 10},
+    {'x': 50, 'y': 90},
+    {'x': 90, 'y': 10},
+    {'x': 90, 'y': 50},
+    {'x': 90, 'y': 90},
 ]
 
 function setAccuracyFocusPosition(posidx){
-    accuracy_focus_element.style.top  = (accuracy_cords[posidx-1]['x']).toString() + "%"
-    accuracy_focus_element.style.left = (accuracy_cords[posidx-1]['y']).toString() + "%"
+    accuracy_focus_element.style.top  = (accuracy_cords[posidx-1]['y'] - 3).toString() + "%"
+    accuracy_focus_element.style.left = (accuracy_cords[posidx-1]['x'] - 1.5).toString() + "%"
 }
 
 function startAccuracyMeasurement(){
