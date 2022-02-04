@@ -1,6 +1,12 @@
 {
     "template": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 2,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "",
             "Position 2":	"",	
@@ -20,6 +26,12 @@
     },
     "P0": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 2,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-09-24T10:09:59.226067.json",
             "Position 2":	"session_2021-09-24T10:10:40.966059.json",	
@@ -35,6 +47,12 @@
     },
     "P0_": {
         "glass": 1,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 2,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-09-24T10:39:00.106268.json",
             "Position 2":	"session_2021-09-24T10:39:21.136990.json",	
@@ -50,6 +68,12 @@
     },
     "P1": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -2,
+        "camera_res": {
+            "mega_pixels": 0.9,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-09-28T09:21:07.053308.json",
             "Position 2":	"session_2021-09-28T09:21:57.437892.json",	
@@ -69,6 +93,12 @@
     },
     "P2": {
         "glass": 1,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.9,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-09-29T04:13:45.257003.json",
             "Position 2":	"session_2021-09-29T04:14:33.579616.json",	
@@ -88,6 +118,12 @@
     },
     "P3": {
         "glass": 1,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.9,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-09-29T04:38:05.566161.json",
             "Position 2":	"session_2021-09-29T04:38:34.502568.json",	
@@ -107,6 +143,12 @@
     },
     "P4": {
         "glass": 1,
+        "gender": "female",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-09-29T05:35:04.619181.json",
             "Position 2":	"session_2021-09-29T05:35:54.235075.json",	
@@ -126,6 +168,12 @@
     },
     "P5": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.92,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-09-29T05:11:44.458041.json",
             "Position 2":	"session_2021-09-29T05:12:14.561025.json",	
@@ -145,6 +193,12 @@
     },
     "P6": {
         "glass": 1,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-09-30T02:57:36.407020.json",
             "Position 2":	"session_2021-09-30T02:58:06.547928.json",	
@@ -164,6 +218,12 @@
     },
     "P7": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -2,
+        "camera_res": {
+            "mega_pixels": 2,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-09-30T05:38:58.157899.json",
             "Position 2":	"session_2021-09-30T05:39:37.638974.json",	
@@ -183,6 +243,12 @@
     },
     "P8": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.92,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-02T01:17:36.529330.json",
             "Position 2":	"session_2021-10-02T01:18:15.501095.json",	
@@ -202,6 +268,12 @@
     },
     "P9": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 5,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-02T01:43:41.187892.json",
             "Position 2":	"session_2021-10-02T01:44:18.663879.json",	
@@ -221,6 +293,12 @@
     },
     "P10": {
         "glass": 1,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-02T02:05:49.925390.json",
             "Position 2":	"session_2021-10-02T02:06:29.245893.json",	
@@ -240,6 +318,12 @@
     },
     "P11": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-02T02:43:49.739557.json",
             "Position 2":	"session_2021-10-02T02:44:39.458025.json",	
@@ -259,6 +343,12 @@
     },
     "P12": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.92,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-02T05:09:28.079535.json",
             "Position 2":	"session_2021-10-02T05:09:47.995909.json",	
@@ -278,6 +368,12 @@
     },
     "P14": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-02T09:44:54.846086.json",
             "Position 2":	"session_2021-10-02T09:45:34.906832.json",	
@@ -297,6 +393,12 @@
     },
     "P15": {
         "glass": 1,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 5,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-02T10:11:04.533454.json",
             "Position 2":	"session_2021-10-02T10:11:51.061924.json",	
@@ -316,6 +418,12 @@
     },
     "P16": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.9,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-04T01:10:46.118407.json",
             "Position 2":	"session_2021-10-04T01:11:16.450141.json",	
@@ -335,6 +443,12 @@
     },
     "P17": {
         "glass": 1,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 2,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "",
             "Position 2":	"",	
@@ -354,6 +468,12 @@
     },
     "P18": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.92,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-04T02:12:07.445386.json",
             "Position 2":	"session_2021-10-04T02:12:47.095818.json",	
@@ -373,6 +493,12 @@
     },
     "P19": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.9,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-04T02:35:57.883970.json",
             "Position 2":	"session_2021-10-04T02:36:38.093949.json",
@@ -392,6 +518,12 @@
     },
     "P20": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.9,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-04T05:41:41.192199.json",
             "Position 2":	"session_2021-10-04T05:42:32.156806.json",	
@@ -411,6 +543,12 @@
     },
     "P21": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.31,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-04T04:38:50.147613.json",
             "Position 2":	"session_2021-10-04T04:39:38.893691.json",	
@@ -430,6 +568,12 @@
     },
     "P22": {
         "glass": 1,
+        "gender": "female",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.9,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-04T05:18:07.567143.json",
             "Position 2":	"session_2021-10-04T05:18:57.685160.json",	
@@ -449,6 +593,12 @@
     },
     "P23": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.92,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-04T09:05:23.500942.json",
             "Position 2":	"session_2021-10-04T09:06:02.513120.json",	
@@ -468,6 +618,12 @@
     },
     "P24": {
         "glass": 1,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.9,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-04T09:38:45.935979.json",
             "Position 2":	"session_2021-10-04T09:39:29.384768.json",	
@@ -487,6 +643,12 @@
     },
     "P25": {
         "glass": 0,
+        "gender": "female",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-05T00:08:58.304149.json",
             "Position 2":	"session_2021-10-05T00:09:28.481961.json",	
@@ -506,6 +668,12 @@
     },
     "P26": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.9,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-05T00:42:54.533873.json",
             "Position 2":	"session_2021-10-05T00:43:24.629071.json",	
@@ -525,6 +693,12 @@
     },
     "P27": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-06T01:20:44.351089.json",
             "Position 2":	"session_2021-10-06T01:21:17.601890.json",	
@@ -544,6 +718,12 @@
     },
     "P28": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-05T01:35:24.391296.json",
             "Position 2":	"session_2021-10-05T01:36:04.114239.json",	
@@ -563,6 +743,12 @@
     },
     "P29": {
         "glass": 1,
+        "gender": "female",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-05T02:07:49.634819.json",
             "Position 2":	"session_2021-10-05T02:08:18.126795.json",	
@@ -582,6 +768,12 @@
     },
     "P30": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-05T02:50:39.297160.json",
             "Position 2":	"session_2021-10-05T02:51:08.745002.json",	
@@ -601,6 +793,12 @@
     },
     "P31": {
         "glass": 1,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.9,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-05T08:56:28.707422.json",
             "Position 2":	"session_2021-10-05T08:56:54.162246.json",	
@@ -620,6 +818,12 @@
     },
     "P32": {
         "glass": 1,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-05T08:35:35.317479.json",
             "Position 2":	"session_2021-10-05T08:36:17.216567.json",	
@@ -639,6 +843,12 @@
     },
     "P33": {
         "glass": 0,
+        "gender": "male",
+        "brightness": -1,
+        "camera_res": {
+            "mega_pixels": 0.3,
+            "frame_per_second": 30
+        },
         "sessions": {
             "Position 1":   "session_2021-10-05T09:21:46.661029.json",
             "Position 2":	"session_2021-10-05T09:22:17.752749.json",	

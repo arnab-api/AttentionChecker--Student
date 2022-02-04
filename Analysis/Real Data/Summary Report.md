@@ -43,7 +43,7 @@ Higher chance of getting distracted by notifications, messages, and calls.
 
 ### Comfortable(?): 0011000100100000000101001010000 *(Comfortable = 1, Instructors' camera is also on)*
 
-8 students are comfortable with sharing their video feed. It makes classes more interactive and stdents will take the classes more seriously. Allowes students to grab teacher's attention easily.
+8 students are comfortable with sharing their video feed. It makes classes more interactive and students will take the classes more seriously. Allows students to grab the teacher's attention easily.
 
 ## Video share vs Gaze Tracking
 
